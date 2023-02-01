@@ -4,7 +4,7 @@ import styles from "@/styles/Index.module.css";
 
 function Header() {
   return (
-    <header >
+    <header id="TopSite">
       <nav className={styles.nav}>
         <h1>
         <Link className={styles.anchor} href='/'>SHARERIZ</Link>
