@@ -12,7 +12,7 @@ function handleClick(id) {
 function Footer() {
   return (
     <>
-     <span onClick={() => handleClick('TopSite')} className={styles.backTop}><Image src="/uparrow.png" alt="arrow" width={20} height={20}/></span>
+     <span onClick={() => handleClick('TopSite')} className={styles.backTop}><Image src="/uparrow.png" alt="arrow" width={30} height={30}/></span>
     <footer id="footer" className={styles.footer}>
       Copyright <span className={styles.icon}> &#169; </span> 2023 shareriz.com
     </footer>

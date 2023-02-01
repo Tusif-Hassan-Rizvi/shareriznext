@@ -1,7 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
 ::-webkit-scrollbar {
@@ -9,74 +8,22 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(216, 216, 216);
+  background-color:none;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: white;
-
+  background-color: rgb(221, 218, 218);
   border-radius: 1rem;
   border: 0.2rem solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(250, 249, 249);
+ background-color: rgb(207, 205, 205);
+ cursor: pointer;
 }
 
 body {
   overflow-x: hidden;
   /* background-color: black; */
 }
-
-/* added global style of serverside */
-.show-data {
-  background-color: #23272a;
-  color: white;
-  border-radius: 10px;
-  /* padding: 20px; */
-  margin: 20px;
-}
-
-.important-info {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  /* justify-content: space-between; */
-}
-.info-text {
-  color: purple;
-}
-.symbol,
-.open,
-.dayHigh,
-.dayLow,
-.lastPrice,
-.change,
-.pChange {
-  flex-basis: 100%;
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
-
-@media (min-width: 600px) {
-  .symbol,
-  .open,
-  .dayHigh,
-  .dayLow,
-  .lastPrice,
-  .change,
-  .pChange {
-    flex-basis: 20%;
-  }
-}
-
-
-  
-
-/* @media (prefers-color-scheme: white) {
-  html {
-    color-scheme: dark;
-  }
-} */
