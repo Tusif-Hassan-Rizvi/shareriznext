@@ -62,7 +62,8 @@
   margin: 6px;
   border-radius: 5px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.123);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
+  font-family: 'Roboto', sans-serif;
   /* background:linear-gradient(112.7deg, rgb(162, 247, 241) 0.3%, rgb(199, 146, 255) 88.7%); */
 }
 
@@ -86,6 +87,7 @@
 
 .showdata:hover {
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
 }
 
 .showdata span {

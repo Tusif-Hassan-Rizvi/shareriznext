@@ -1,7 +1,6 @@
 const axios = require("axios");
 
 export default function handler(req, res) {
-    console.log("this is home page", req, res)
     const options = {
         method: 'GET',
         url: 'https://latest-stock-price.p.rapidapi.com/any',
@@ -12,7 +11,6 @@ export default function handler(req, res) {
       };
     
     axios.request(options).then(function (response) {
-        console.log(response.data);
         res.status(200).json(response.data)
     }).catch(function (error) {
         console.error(error);

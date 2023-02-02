@@ -9,8 +9,6 @@ function Serverside(props) {
   const handleSelectChange = (value) => {
     setIndices(value);
   }
-  console.log(indices)
-  console.log(process.env.NEXT_PUBLIC_ALLSTOCK)
   return (
     <>
   <CustomSelect  options={['NIFTY 50', 'NIFTY IT', 'NIFTY BANK', 'NIFTY ENERGY']} onChange={handleSelectChange}></CustomSelect>
@@ -58,7 +56,7 @@ function Serverside(props) {
 }
 
 export async function getServerSideProps(context) {
-    console.log("this is context ", context.query)
+    // console.log("this is context ", context.query)
   const indices = 'NIFTY 50';
   const link = `http://localhost:3000/api/data?indices=${indices}`;
   let data = await fetch(link);

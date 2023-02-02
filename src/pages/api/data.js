@@ -3,7 +3,7 @@ const axios = require("axios");
 // http://localhost:3000/api/data?indices=NIFTY PHARMA
 // http://localhost:3000/api/data?indices=NIFTY IT
 export default function handler(req, res) {
-  console.log(req.query);
+  // console.log(req.query);
   const options = {
     method: "GET",
     url: "https://latest-stock-price.p.rapidapi.com/price",
