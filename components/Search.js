@@ -84,7 +84,7 @@ function Search(props) {
                             : { color: "red" }
                         }
                       >
-                        {item.change.toFixed(2)}
+                       {item.change >= 0 ? "+" : ""}{item.change.toFixed(2)}
                       </span>
                     </span>
                     <span className={styles.pChange} id="pc">
@@ -96,7 +96,7 @@ function Search(props) {
                             : { color: "red" }
                         }
                       >
-                        {item.pChange.toFixed(2)}%
+                        {item.pChange >= 0 ? "+" : ""}{item.pChange.toFixed(2)}%
                       </span>
                     </span>
               </div> : null

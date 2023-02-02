@@ -33,6 +33,12 @@ function Mainbox(props) {
       ? (ParaDisplay.style.display = "block")
       : (ParaDisplay.style.display = "none");
     ParaDisplay.innerHTML = noResults ? "Not found!" : "";
+    if(noResults){
+      showinfo.style.display='none'
+    }
+    else{
+      showinfo.style.display="flex"
+    }
 
   }, [props.searchvalue]);
 
@@ -77,7 +83,7 @@ function Mainbox(props) {
       {/* stocks data  */}
       <div id="container" className={styles.container}>
         <p id="para" className={styles.para}></p>
-        <div id="ShowInfo" style={props.loading?{boxShadow:"none"}:{background:"white"}} className={styles.showdataBox}>
+        <div id="ShowInfo" style={props.loading?{boxShadow:"none"}:{}} className={styles.showdataBox}>
           {props.loading ? (
             <Loadder />
           ) : (
@@ -117,20 +123,20 @@ function Mainbox(props) {
                             : { color: "red" }
                         }
                       >
-                        {item.change.toFixed(2)}
+                        {item.change >= 0 ? "+" : ""}{item.change.toFixed(2)}
                       </span>
                     </span>
                     <span className={styles.pChange} id="pc">
                       <div className={styles.infotext}>PROFIT/LOSS</div>
-                      <span
+                      {<span
                         style={
                           item.pChange >= 0
                             ? { color: "green" }
                             : { color: "red" }
                         }
                       >
-                        {item.pChange.toFixed(2)}%
-                      </span>
+                          {item.pChange >= 0 ? "+" : ""}{item.pChange.toFixed(2)}%
+                      </span>}
                     </span>
                   </div>
                 ))

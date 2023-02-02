@@ -65,6 +65,7 @@
   font-size: 0.7rem;
   font-family: 'Roboto', sans-serif;
   /* background:linear-gradient(112.7deg, rgb(162, 247, 241) 0.3%, rgb(199, 146, 255) 88.7%); */
+  color: rgba(75, 85, 99, 0.952);
 }
 
 .importantinfo {
@@ -96,10 +97,11 @@
 
 .showdataBox {
   max-height: 80vh;
+  max-width: 90vw;
   overflow-y: scroll;
-  padding:10px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.151);
-  border-radius: 10px;
+  padding:0px 5px;
+  /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.151); */
+  /* border-radius: 10px; */
 }
 
 .symbol {
