@@ -11,10 +11,10 @@ function CustomSelect({ options, onChange }) {
   };
 
   return (
-    <div className={`${styles.customSelectContainer}`} style={{width:"10vw", height:"10vh", overflowY:"scroll", border:"1px solid purple"}}>
+    <div className={`${styles.customSelectContainer}`} >
       <div
         className={`${styles.selectedOption}`}
-        onMouseOver={() => {
+        onClick={() => {
             hoverstyle==='none'?
           setHoverstyle("block"):setHoverstyle('none');
         }}

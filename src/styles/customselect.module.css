@@ -1,51 +1,12 @@
-/* .customSelectContainer {
-    position: relative;
-    width: 200px;
-    height: 40px;
-    border: 1px solid gray;
-    border-radius: 5px;
-  }
-  
-  .selectedOption {
-    padding: 10px;
-    text-align: center;
-    font-size: 16px;
-    color: gray;
-    cursor: pointer;
-  }
+/* .selectContainer.whitetheme {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
- 
-  
-  .optionsList {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    border: 1px solid gray;
-    border-top: none;
-    border-radius: 0 0 5px 5px;
-  }
- 
-  .option {
-    padding: 10px;
-    text-align: center;
-    font-size: 16px;
-    color: gray;
-    cursor: pointer;
-    background-color: white;
-  }
-  
-  .option:hover {
-    background-color: lightgray;
-  }
-  
-  .option.selected {
-    background-color: lightblue;
-    color: white;
-  }
-  
- */
+.selectheader.whitetheme {
+  color: black;
+}
+
+.selectoptions.whitetheme li {
+  background-color: white;
+} */

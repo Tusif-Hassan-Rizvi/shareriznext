@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 .nav {
   top: 0;
   z-index: 100;
@@ -12,7 +12,7 @@
 }
 
 .nav h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
   padding-left: 10px;
 }
@@ -26,16 +26,6 @@
   color: rgb(175, 96, 175);
 }
 
-.heading {
-  color: rgb(104, 6, 104);
-  text-align: center;
-  margin-top: 100px;
-  margin-bottom: 30px;
-  font-weight: bolder;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
 .container {
   position: relative;
   display: flex;
@@ -43,8 +33,7 @@
   flex-direction: column;
   width: 100vw;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .container a {
@@ -55,35 +44,15 @@
 .showdata {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  min-width: 65vw;
-  min-height: 65px;
+  min-height: 60px;
+  max-width: 80vw;
   margin: 6px;
   border-radius: 5px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.123);
-  font-size: 0.7rem;
-  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  font-family: "Roboto", sans-serif;
   /* background:linear-gradient(112.7deg, rgb(162, 247, 241) 0.3%, rgb(199, 146, 255) 88.7%); */
   color: rgba(75, 85, 99, 0.952);
-}
-
-.importantinfo {
-  display: flex;
-  flex-direction: row;
-  margin-top: 5px;
-}
-
-.detailinfo {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: row;
-}
-
-.detailinfo span {
-  width: 5vw;
-  padding: 0 7px;
 }
 
 .showdata:hover {
@@ -91,62 +60,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
 }
 
-.showdata span {
-  font-weight: 600;
+.stockDetail {
+  min-width: 100px;
+   padding: 0 10px;
 }
-
 .showdataBox {
   max-height: 80vh;
-  max-width: 90vw;
   overflow-y: scroll;
-  padding:0px 5px;
-  /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.151); */
-  /* border-radius: 10px; */
-}
-
-.symbol {
-  width: 10vw;
-  color: black;
-  padding-left: 15px;
-  padding: 0 7px;
-}
-
-.open {
-  width: 9vw;
-  padding: 0 7px;
-}
-
-.dayHigh {
-  width: 9vw;
-  padding: 0 7px;
-}
-
-.dayLow {
-  width: 9vw;
-  padding: 0 7px;
-}
-
-.lastPrice {
-  width: 9vw;
-  padding: 0 7px;
-}
-
-.change {
-  width: 9vw;
-  padding: 0 7px;
-}
-
-.pChange {
-  width: 9vh;
-  padding-right: 20px;
-  padding: 0 7px;
-}
-
-.infotext {
-  color: purple;
-  font-weight: bold;
-  height: 2vh;
-  margin-bottom: 5px;
 }
 
 .para {
@@ -166,7 +86,7 @@
   width: 100vw;
 }
 
-.searchbtn{
+.searchbtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,6 +96,23 @@
   border-radius: 5px 0px 0px 5px;
   border: 1px solid purple;
   border-right: none;
+}
+
+.indexInputbox {
+  position: relative;
+  left: 100px;
+}
+.indexsearchIcon {
+  position: absolute;
+  top: 10px;
+  left: -25px;
+}
+.indexInput {
+  outline: none;
+  width: 15vw;
+  height: 31px;
+  border-bottom: 1px solid purple;
+  padding-left: 25px;
 }
 
 .inputBox {
@@ -196,7 +133,7 @@
   cursor: pointer;
 }
 
-.SearchData{
+.SearchData {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -207,24 +144,7 @@
   justify-content: center;
   height: 5vh;
   max-width: 100vw;
-}
-
-.menue span {
-  padding: 0 2rem;
-  font-weight: 500;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: purple;
-  cursor: pointer;
-}
-
-.menue span:hover {
-  color: rgb(48, 5, 48);
-  font-weight: 600;
-}
-
-.menue span:active {
-  color: rgb(185, 35, 185);
+  flex-direction: row;
 }
 
 .button-section {
@@ -252,7 +172,6 @@
 .nextpage:active {
   box-shadow: 0 0 10px rgba(128, 0, 128, 0.26);
 }
-
 
 .backTop {
   display: flex;
@@ -301,147 +220,104 @@
 }
 
 @media only screen and (max-width: 1200px) {
+  .indexInputbox {
+    left: 50px;
+  }
   .infotext {
     font-size: 0.5rem;
   }
-
-  .showdata span {
-    font-size: 0.5rem;
-  }
+ 
 
   .nav {
     justify-content: center;
   }
 
-  .menue span {
-    font: size 0.8rem;
-    padding: 0 1.5rem;
-  }
-
-  .searchIcon{
+  .searchIcon {
     right: 302px;
   }
-
 }
 
 @media only screen and (max-width: 800px) {
-  .infotext {
-    font-size: 0.45rem;
-  }
+  .showdata{
 
-  .showdata span {
-    font-size: 0.45rem;
+    font-size: 0.7rem;
   }
-
-  .menue span {
-    font-size: 0.8rem;
-    padding: 0 1.1rem;
+  .indexsearchIcon {
+    left: -10px;
   }
-
-  .searchIcon{
+  .indexInput {
+    font-size: 0.7rem;
+    width: 120px;
+    padding-left: 20px;
+  }
+ 
+  .searchIcon {
     right: 220px;
   }
+
+  
 }
 
 @media only screen and (max-width: 600px) {
-  .infotext {
-    font-size: 0.4rem;
+  .showdata{
+    font-size: 0.6rem;
   }
-
-  .showdata span {
-    font-size: 0.4rem;
-  }
-
-  .showdata {
-    width: 90vw;
-  }
-
-  .menue span {
-    font-size: 0.7rem;
-    padding: 0 1rem;
-  }
-
   .inputBox {
     width: 60vw;
   }
 
-  .searchIcon{
-    right:318px;
+  .searchIcon {
+    right: 318px;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .infotext {
-    font-size: 0.35rem;
+  .stockDetail {
+    min-width: 80px;
   }
-
-  .showdata span {
-    font-size: 0.35rem;
+  .indexInputbox {
+    left: 40px;
   }
 
   .footer {
     font-size: 0.7rem;
   }
 
-  .menue span {
-    font-size: 0.5rem;
-    padding: 0 1rem;
-  }
-
-  .searchIcon{
-    right:240px
+  .searchIcon {
+    right: 240px;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  .infotext {
-    font-size: 0.3rem;
-  }
 
-  .showdata span {
-    font-size: 0.3rem;
+  .stockDetail {
+    min-width: 70px;
   }
-
-  .menue span {
-    font-size: 0.45rem;
-    padding: 0 0.9rem;
-  }
-
-  .searchIcon{
+  .searchIcon {
     right: 225px;
   }
 }
 
 @media only screen and (max-width: 300px) {
-  .infotext {
-    font-size: 0.25rem;
+  .showdata{
+    font-size: 0.5rem;
   }
-
-  .showdata span {
-    font-size: 0.25rem;
+  .stockDetail {
+    min-width: 30px;
   }
-
-  .menue span {
-    font-size: 0.45rem;
-    padding: 0 0.8rem;
+  .indexInputbox {
+    left: 10px;
   }
+  
 
-  .searchIcon{
+  .searchIcon {
     right: 160px;
   }
 }
 
 @media only screen and (max-width: 200px) {
-  .infotext {
-    font-size: 0.2rem;
-  }
+.showdata{
 
-  .showdata span {
-    font-size: 0.2rem;
-  }
-
-  .menue span {
-    font-size: 0.4rem;
-    padding: 0 0.7rem;
-  }
+  font-size: 0.5rem;
+}
 }
