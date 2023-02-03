@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/Index.module.css";
 import Loadder from "./Loadder";
+import Customselect from "./Customselect";
 
 function Mainbox(props) {
   const [indices, setIndices] = useState("");
+  const [listinput, setListinput] = useState("");
+  const IndexArray=["NIFTY 50", "NIFTY IT", "NIFTY BANK", "NIFTY ENERGY", "NIFTY PHARMA", "NIFTY INFRA", "NIFTY METAL", "NIFTY PHARMA", "NIFTY PSU BANK", "NIFTY PVT BANK", "NIFTY FIN SERVICE", "NIFTY MEDIA"];
 
   const OnclickIndices = (e) => {
     setIndices(e.target.innerText);
@@ -16,7 +19,7 @@ function Mainbox(props) {
   useEffect(() => {
     let showinfo = document.getElementById("ShowInfo");
     let ParaDisplay = document.getElementById("para");
-    let value = props.searchvalue;
+    let value = listinput;
     value = value.toUpperCase();
     let noResults = true;
     for (let i = 0; i < showinfo.children[0].children.length; i++) {
@@ -32,26 +35,40 @@ function Mainbox(props) {
     noResults
       ? (ParaDisplay.style.display = "block")
       : (ParaDisplay.style.display = "none");
-    ParaDisplay.innerHTML = noResults ? "Not found!" : "";
-    if(noResults){
-      showinfo.style.display='none'
+    ParaDisplay.innerHTML = noResults ? `"${listinput}" Not found!` : "";
+    if (noResults) {
+      showinfo.style.display = "none";
+    } else {
+      showinfo.style.display = "flex";
     }
-    else{
-      showinfo.style.display="flex"
-    }
-
-  }, [props.searchvalue]);
+  }, [listinput]);
 
   useEffect(() => {
     let paraDisplay = document.getElementById("para");
     paraDisplay.style.display = "none";
   }, [indices]);
 
+  // listinput HandleChange
+  const HandleChange = (e) => {
+    setListinput(e.target.value);
+  };
+
+  //select indices logic
+  const handleSelectChange = (value) => {
+    console.log(value);
+    setIndices(value)
+    props.Indices(value)
+  };
+
   return (
     <>
       <div className={styles.heading}>TODAY INSIGHTS</div>
 
       {/* stock list */}
+      <Customselect
+        options={IndexArray}
+        onChange={handleSelectChange}
+      />
       <div id="menue" className={styles.menue}>
         <span id="nifty" className={styles.niftylink} onClick={OnclickIndices}>
           NIFTY 50
@@ -61,29 +78,24 @@ function Mainbox(props) {
           className={styles.niftylink}
           onClick={OnclickIndices}
         >
-          NIFTY NEXT 50
+          NIFTY IT
         </span>
-        <span
-          id="nifty-100"
-          className={styles.niftylink}
-          onClick={OnclickIndices}
-        >
-          NIFTY 100
-        </span>
-        <span
-          id="nifty-200"
-          className={styles.niftylink}
-          onClick={OnclickIndices}
-        >
-          NIFTY 200
-        </span>
-        {/* <!-- <span id="nifty-all" className="niftylink">NIFTY ALL STOCK</span> --> */}
+        <input
+          type="search"
+          placeholder="Search stocks here"
+          onChange={HandleChange}
+          value={listinput}
+        ></input>
       </div>
 
       {/* stocks data  */}
       <div id="container" className={styles.container}>
         <p id="para" className={styles.para}></p>
-        <div id="ShowInfo" style={props.loading?{boxShadow:"none"}:{}} className={styles.showdataBox}>
+        <div
+          id="ShowInfo"
+          style={props.loading ? { boxShadow: "none" } : {}}
+          className={styles.showdataBox}
+        >
           {props.loading ? (
             <Loadder />
           ) : (
@@ -123,20 +135,24 @@ function Mainbox(props) {
                             : { color: "red" }
                         }
                       >
-                        {item.change >= 0 ? "+" : ""}{item.change.toFixed(2)}
+                        {item.change >= 0 ? "+" : ""}
+                        {item.change.toFixed(2)}
                       </span>
                     </span>
                     <span className={styles.pChange} id="pc">
                       <div className={styles.infotext}>PROFIT/LOSS</div>
-                      {<span
-                        style={
-                          item.pChange >= 0
-                            ? { color: "green" }
-                            : { color: "red" }
-                        }
-                      >
-                          {item.pChange >= 0 ? "+" : ""}{item.pChange.toFixed(2)}%
-                      </span>}
+                      {
+                        <span
+                          style={
+                            item.pChange >= 0
+                              ? { color: "green" }
+                              : { color: "red" }
+                          }
+                        >
+                          {item.pChange >= 0 ? "+" : ""}
+                          {item.pChange.toFixed(2)}%
+                        </span>
+                      }
                     </span>
                   </div>
                 ))

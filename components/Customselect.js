@@ -11,7 +11,7 @@ function CustomSelect({ options, onChange }) {
   };
 
   return (
-    <div className={`${styles.customSelectContainer}`}>
+    <div className={`${styles.customSelectContainer}`} style={{width:"10vw", height:"10vh", overflowY:"scroll", border:"1px solid purple"}}>
       <div
         className={`${styles.selectedOption}`}
         onMouseOver={() => {
@@ -24,6 +24,7 @@ function CustomSelect({ options, onChange }) {
       <ul className={`${styles.optionsList}`} style={{ display: hoverstyle }}>
         {options.map((option) => (
           <li
+          style={selectedOption === option?{color: "gray", pointerEvents: "none", cursor: 'default'}:{color: "black", pointerEvents: "auto", cursor: 'pointer'}}
             key={option}
             className={`${styles.option}`}
             onClick={() => {
