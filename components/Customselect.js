@@ -11,22 +11,22 @@ function CustomSelect({ options, onChange }) {
   };
 
   return (
-    <div className={`${styles.customSelectContainer}`} >
+    <div className={styles.customSelectContainer}>
       <div
-        className={`${styles.selectedOption}`}
+        className={styles.selectedOption}
         onClick={() => {
             hoverstyle==='none'?
-          setHoverstyle("block"):setHoverstyle('none');
+          setHoverstyle("flex"):setHoverstyle('none');
         }}
       >
         {selectedOption}
       </div>
-      <ul className={`${styles.optionsList}`} style={{ display: hoverstyle }}>
+      <ul className={styles.optionsList} style={{ display: hoverstyle}}>
         {options.map((option) => (
           <li
           style={selectedOption === option?{color: "gray", pointerEvents: "none", cursor: 'default'}:{color: "black", pointerEvents: "auto", cursor: 'pointer'}}
             key={option}
-            className={`${styles.option}`}
+            className={styles.option}
             onClick={() => {
               setSelectedOption(option);
               onChange(option);

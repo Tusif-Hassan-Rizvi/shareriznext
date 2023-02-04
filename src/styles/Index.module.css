@@ -27,6 +27,7 @@
 }
 
 .container {
+  margin-top: 100px;
   position: relative;
   display: flex;
   align-items: center;
@@ -101,19 +102,20 @@
 
 .indexInputbox {
   position: relative;
-  left: 100px;
 }
 .indexsearchIcon {
   position: absolute;
-  top: 10px;
-  left: -25px;
+  top:5px;
+  left: 5px;
 }
 .indexInput {
   outline: none;
-  width: 15vw;
-  height: 31px;
-  border-bottom: 1px solid purple;
+  border: 1px solid purple;
   padding-left: 25px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 5px;
+  font-size: 0.7rem;
 }
 
 .inputBox {
@@ -142,10 +144,6 @@
 
 .menue {
   display: flex;
-  justify-content: center;
-  height: 5vh;
-  max-width: 100vw;
-  flex-direction: row;
 }
 
 .button-section {
@@ -221,9 +219,6 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .indexInputbox {
-    left: 50px;
-  }
   .infotext {
     font-size: 0.5rem;
   }
@@ -235,11 +230,7 @@
 
 @media only screen and (max-width: 800px) {
   .showdata{
-
     font-size: 0.7rem;
-  }
-  .indexsearchIcon {
-    left: -10px;
   }
   .indexInput {
     font-size: 0.7rem;
@@ -271,10 +262,6 @@
   .stockDetail {
     min-width: 80px;
   }
-  .indexInputbox {
-    left: 40px;
-  }
-
   .footer {
     font-size: 0.7rem;
   }
@@ -301,11 +288,6 @@
   .stockDetail {
     min-width: 30px;
   }
-  .indexInputbox {
-    left: 10px;
-  }
-  
-
   .searchIcon {
     right: 160px;
   }

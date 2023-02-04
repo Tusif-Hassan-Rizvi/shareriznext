@@ -7,7 +7,6 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import Search from "components/Search";
 import Mainbox from "components/Mainbox";
-import Dropdown from "components/Dropdown";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,7 +53,6 @@ export default function Home(props) {
       <Search SearchValue={SearchValue}></Search>
       <Mainbox Indices={GetIndices} stockdata={stockdata} loading={loading} searchvalue={searchvalue}></Mainbox>
       <Footer></Footer>
-      {/* <Dropdown></Dropdown> */}
     </>
   );
 }

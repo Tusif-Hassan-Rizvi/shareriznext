@@ -56,13 +56,14 @@ export default function Search(props) {
               (item, index) =>
                 input !== "" &&
                 (item.symbol.includes(input.toUpperCase()) ? (
-                  <div
-                  onClick={()=>console.log(item)}
-                    key={index}
-                    style={{ display: "none" }}
-                  >
-                  <Link href={`/stock/${item.symbol}`}>
-                    <Stocktable item={item} ></Stocktable>
+                  <div key={index} style={{ display: "none" }}>
+                    <Link
+                      href={`/stock/${item.symbol}`}
+                      onClick={() =>
+                        sessionStorage.setItem("item", JSON.stringify(item))
+                      }
+                    >
+                      <Stocktable item={item}></Stocktable>
                     </Link>
                   </div>
                 ) : null)

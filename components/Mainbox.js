@@ -71,38 +71,37 @@ export default function Mainbox(props) {
 
   //select indices logic
   const handleSelectChange = (value) => {
-    console.log(value);
     setIndices(value);
     props.Indices(value);
   };
 
   return (
     <>
-      <div id="menue" className={styles.menue}>
-        {/* stock list */}
-        <Customselect options={IndexArray} onChange={handleSelectChange} />
-        <div className={styles.indexInputbox}>
-          <span className={styles.indexsearchIcon}>
-            <Image
-              src="/search.svg"
-              height={10}
-              width={15}
-              className={styles.searchIcon}
-              alt="search"
-            ></Image>
-          </span>
-          <input
-            className={styles.indexInput}
-            type="search"
-            placeholder="Search stocks"
-            onChange={HandleChange}
-            value={listinput}
-          ></input>
-        </div>
-      </div>
-
-      {/* stocks data  */}
       <div id="container" className={styles.container}>
+          {/* index list & search option*/}
+        <div id="menue" className={styles.menue}>
+          <Customselect options={IndexArray} onChange={handleSelectChange} />
+          <div className={styles.indexInputbox}>
+            <span className={styles.indexsearchIcon}>
+              <Image
+                src="/search.svg"
+                height={10}
+                width={15}
+                className={styles.searchIcon}
+                alt="search"
+              ></Image>
+            </span>
+            <input
+              className={styles.indexInput}
+              type="search"
+              placeholder="Search stocks"
+              onChange={HandleChange}
+              value={listinput}
+            ></input>
+          </div>
+        </div>
+
+        {/* stocks data  */}
         <p id="para" className={styles.para}></p>
         <div
           id="ShowInfo"
@@ -117,9 +116,14 @@ export default function Mainbox(props) {
                 <h2>Data not found!</h2>
               ) : (
                 props.stockdata.map((item, index) => (
-                  <div key={index} onClick={()=>console.log(item)}>
-                     <Link href={`/stock/${item.symbol}`}>
-                    <Stocktable item={item} ></Stocktable>
+                  <div key={index}>
+                    <Link
+                      href={`/stock/${item.symbol}`}
+                      onClick={() =>
+                        sessionStorage.setItem("item", JSON.stringify(item))
+                      }
+                    >
+                      <Stocktable item={item}></Stocktable>
                     </Link>
                   </div>
                 ))
