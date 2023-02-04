@@ -52,7 +52,8 @@
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
   /* background:linear-gradient(112.7deg, rgb(162, 247, 241) 0.3%, rgb(199, 146, 255) 88.7%); */
-  color: rgba(75, 85, 99, 0.952);
+  color: gray;
+  box-sizing: border-box;
 }
 
 .showdata:hover {
@@ -62,7 +63,7 @@
 
 .stockDetail {
   min-width: 100px;
-   padding: 0 10px;
+  padding: 0 10px;
 }
 .showdataBox {
   max-height: 80vh;

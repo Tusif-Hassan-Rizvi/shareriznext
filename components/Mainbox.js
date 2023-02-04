@@ -116,7 +116,7 @@ export default function Mainbox(props) {
               ) : (
                 props.stockdata.map((item, index) => (
                   <div className={styles.showdata} id="show-data" key={index}>
-                    <div className={styles.stockDetail}>{item.symbol}</div>
+                    <div className={styles.stockDetail} style={{color:"rgba(75, 85, 99, 0.952)"}}>{item.symbol}</div>
                     <div className={styles.stockDetail} id="lastPrice">
                       ₹{item.lastPrice}
                     </div>

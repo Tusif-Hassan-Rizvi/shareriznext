@@ -59,7 +59,7 @@ export default function Search(props) {
                     className={styles.showdata}
                     style={{ display: "none" }}
                   >
-                    <div className={styles.stockDetail}>{item.symbol}</div>
+                    <div className={styles.stockDetail} style={{color:"rgba(75, 85, 99, 0.952)"}}>{item.symbol}</div>
                     <div className={styles.stockDetail} id="lastPrice">
                       ₹{item.lastPrice}
                     </div>
