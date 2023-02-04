@@ -3,6 +3,7 @@ import styles from "@/styles/Index.module.css";
 import Loadder from "./Loadder";
 import Customselect from "./Customselect";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Mainbox(props) {
   const [indices, setIndices] = useState("");
@@ -115,7 +116,8 @@ export default function Mainbox(props) {
                 <h2>Data not found!</h2>
               ) : (
                 props.stockdata.map((item, index) => (
-                  <div className={styles.showdata} id="show-data" key={index}>
+                  <div className={styles.showdata} id="show-data" key={index} onClick={()=>console.log(item)}>
+                     <Link href={`/stock/${item.symbol}`}>
                     <div className={styles.stockDetail} style={{color:"rgba(75, 85, 99, 0.952)"}}>{item.symbol}</div>
                     <div className={styles.stockDetail} id="lastPrice">
                       ₹{item.lastPrice}
@@ -145,6 +147,7 @@ export default function Mainbox(props) {
                         {item.pChange.toFixed(2)}%
                       </div>
                     </div>
+                    </Link>
                   </div>
                 ))
               )}

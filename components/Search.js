@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/Index.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Search(props) {
   const [input, setInput] = useState("");
@@ -59,6 +60,7 @@ export default function Search(props) {
                     className={styles.showdata}
                     style={{ display: "none" }}
                   >
+                      <Link href={`/stock/${item.symbol}`}>
                     <div className={styles.stockDetail} style={{color:"rgba(75, 85, 99, 0.952)"}}>{item.symbol}</div>
                     <div className={styles.stockDetail} id="lastPrice">
                       ₹{item.lastPrice}
@@ -88,6 +90,7 @@ export default function Search(props) {
                         {item.pChange.toFixed(2)}%
                       </div>
                     </div>
+                    </Link>
                   </div>
                 ) : null)
             )}
