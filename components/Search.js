@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "@/styles/Index.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import Stocktable from "./Stocktable";
 
 export default function Search(props) {
   const [input, setInput] = useState("");
@@ -56,40 +57,12 @@ export default function Search(props) {
                 input !== "" &&
                 (item.symbol.includes(input.toUpperCase()) ? (
                   <div
+                  onClick={()=>console.log(item)}
                     key={index}
-                    className={styles.showdata}
                     style={{ display: "none" }}
                   >
-                      <Link href={`/stock/${item.symbol}`}>
-                    <div className={styles.stockDetail} style={{color:"rgba(75, 85, 99, 0.952)"}}>{item.symbol}</div>
-                    <div className={styles.stockDetail} id="lastPrice">
-                      ₹{item.lastPrice}
-                    </div>
-                    <div className={styles.stockDetail}>
-                      <div
-                        id="pricechange"
-                        style={
-                          item.change >= 0
-                            ? { color: "green" }
-                            : { color: "red" }
-                        }
-                      >
-                        {item.change >= 0 ? "+" : ""}
-                        {item.change.toFixed(2)} ₹
-                      </div>
-                    </div>
-                    <div className={styles.stockDetail} id="pc">
-                      <div
-                        style={
-                          item.pChange >= 0
-                            ? { color: "green" }
-                            : { color: "red" }
-                        }
-                      >
-                        {item.pChange >= 0 ? "+" : ""}
-                        {item.pChange.toFixed(2)}%
-                      </div>
-                    </div>
+                  <Link href={`/stock/${item.symbol}`}>
+                    <Stocktable item={item} ></Stocktable>
                     </Link>
                   </div>
                 ) : null)
