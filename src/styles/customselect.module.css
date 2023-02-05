@@ -1,15 +1,17 @@
 .customSelectContainer{
   position: relative;
-  margin: 0 5px;
 }
 
 .selectedOption{
+  position: relative;
+  display: flex;
+  align-items: center;
   border: 1px solid purple;
   margin-bottom: 2px;
   cursor: pointer;
-  padding: 3px;
+  padding: 4px;
   border-radius: 4px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   width: 130px;
   background-color: rgba(128, 0, 128, 0.075);
 }

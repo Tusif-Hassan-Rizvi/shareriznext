@@ -11,6 +11,8 @@ export default function Mainbox(props) {
   const [listinput, setListinput] = useState("");
   const IndexArray = [
     "NIFTY 50",
+    "NIFTY NEXT 50",
+    "NIFTY 100",
     "NIFTY IT",
     "NIFTY BANK",
     "NIFTY ENERGY",
@@ -22,6 +24,9 @@ export default function Mainbox(props) {
     "NIFTY PVT BANK",
     "NIFTY FIN SERVICE",
     "NIFTY MEDIA",
+    "NIFTY FMCG",
+    "NIFTY MIDCAP 50",
+    "NIFTY MIDCAP 100"
   ];
 
   const OnclickIndices = (e) => {
@@ -80,7 +85,6 @@ export default function Mainbox(props) {
       <div id="container" className={styles.container}>
           {/* index list & search option*/}
         <div id="menue" className={styles.menue}>
-          <Customselect options={IndexArray} onChange={handleSelectChange} />
           <div className={styles.indexInputbox}>
             <span className={styles.indexsearchIcon}>
               <Image
@@ -99,6 +103,7 @@ export default function Mainbox(props) {
               value={listinput}
             ></input>
           </div>
+          <Customselect options={IndexArray} onChange={handleSelectChange} />
         </div>
 
         {/* stocks data  */}
