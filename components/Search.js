@@ -28,47 +28,53 @@ export default function Search(props) {
   }, []);
   return (
     <>
-      <div className={styles.searchOption}>
-        <span className={styles.searchbtn}>
-          <Image
-            src="/search.svg"
-            height={20}
-            width={20}
-            className={styles.searchIcon}
-            alt="search"
-          ></Image>
-        </span>
-        <input
-          className={styles.inputBox}
-          type="search"
-          placeholder="Search stocks here"
-          id="search-input"
-          onChange={HandleChange}
-          value={input}
-        />
-      </div>
+      <section id="Track">
+        <div className={styles.searchOption}>
+          <div className={styles.searchInputBox}>
+            <span className={styles.searchbtn}>
+              <Image
+                src="/search.svg"
+                height={20}
+                width={20}
+                className={styles.searchIcon}
+                alt="search"
+              ></Image>
+            </span>
+            <input
+              className={styles.inputBox}
+              type="search"
+              placeholder="Search stocks"
+              id="search-input"
+              onChange={HandleChange}
+              value={input}
+            />
+          </div>
+        </div>
 
-      {/* search result  */}
-      <div id="searchData" className={styles.SearchData}>
-        {breifdata.length === 0
-          ? null
-          : breifdata.map(
-              (item, index) =>
-                input !== "" &&
-                (item.symbol.includes(input.toUpperCase()) ? (
-                  <div key={index} style={{ display: "none" }}>
-                    <Link
-                      href={`/stock/${item.symbol}`}
-                      onClick={() =>
-                        sessionStorage.setItem("item", JSON.stringify(item))
-                      }
-                    >
-                      <Stocktable item={item}></Stocktable>
-                    </Link>
-                  </div>
-                ) : null)
-            )}
-      </div>
+        {/* search result  */}
+        <div id="searchData" className={styles.SearchData}>
+          {breifdata.length === 0
+            ? null
+            : breifdata.map(
+                (item, index) =>
+                  input !== "" &&
+                  (item.symbol.includes(input.toUpperCase()) ? (
+                    <div key={index} style={{ display: "none"}}>
+                      <Link
+                      legacyBehavior
+                        href={`/stock/${item.symbol}`}
+                      >
+                        <a style={{textDecoration:"none"}}  onClick={() =>
+                          sessionStorage.setItem("item", JSON.stringify(item))
+                        }>
+                        <Stocktable item={item}></Stocktable>
+                        </a>
+                      </Link>
+                    </div>
+                  ) : null)
+              )}
+        </div>
+      </section>
     </>
   );
 }

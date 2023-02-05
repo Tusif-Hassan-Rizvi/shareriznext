@@ -82,6 +82,7 @@ export default function Mainbox(props) {
 
   return (
     <>
+    <section id="Index">
       <div id="container" className={styles.container}>
           {/* index list & search option*/}
         <div id="menue" className={styles.menue}>
@@ -89,7 +90,7 @@ export default function Mainbox(props) {
             <span className={styles.indexsearchIcon}>
               <Image
                 src="/search.svg"
-                height={10}
+                height={15}
                 width={15}
                 className={styles.searchIcon}
                 alt="search"
@@ -137,6 +138,7 @@ export default function Mainbox(props) {
           )}
         </div>
       </div>
+      </section>
     </>
   );
 }

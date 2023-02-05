@@ -7,7 +7,7 @@ export default function Stocktable(props) {
     <div className={styles.showdata}>
       <div
         className={styles.stockDetail}
-        style={{ color: "rgba(75, 85, 99, 0.952)" }}
+        style={{ color: "#0e2431"}}
       >
         {props.item.symbol}
       </div>

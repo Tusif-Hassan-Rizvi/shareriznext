@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 .nav {
   top: 0;
   z-index: 100;
@@ -11,19 +10,46 @@
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.079);
 }
 
-.nav h1 {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.5rem;
+.navigate{
+  display: flex;
+  margin-left: 400px;
+}
+
+.navigate li{
+  padding: 0 50px;
+  list-style: none;
+}
+
+.navigate li a{
+  text-decoration: none;
+  color: rgb(70, 7, 70);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.navigate li a:hover{
+  color: rgb(153, 23, 153);
+}
+
+.hamnav{
+  display: none;
+}
+
+.h1 {
+  font-size: 1.2rem;
   padding-left: 10px;
 }
 
-.anchor {
-  color: purple;
+.h1 a{
   text-decoration: none;
+  color: purple;
+  font-weight: 600;
 }
 
-.anchor :active {
-  color: rgb(175, 96, 175);
+
+.h1 a:active {
+ color: rgb(153, 92, 153);
 }
 
 .container {
@@ -34,7 +60,6 @@
   flex-direction: column;
   width: 100vw;
   min-height: 100vh;
-  font-family: "Roboto", sans-serif;
 }
 
 .container a {
@@ -51,9 +76,7 @@
   border-radius: 5px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.123);
   font-size: 0.8rem;
-  font-family: "Roboto", sans-serif;
-  /* background:linear-gradient(112.7deg, rgb(162, 247, 241) 0.3%, rgb(199, 146, 255) 88.7%); */
-  color: gray;
+  color: #374d5a;
   box-sizing: border-box;
 }
 
@@ -63,6 +86,7 @@
 }
 
 .stockDetail {
+  box-sizing: border-box;
   min-width: 100px;
   padding: 0 10px;
 }
@@ -73,7 +97,6 @@
 
 .para {
   position: absolute;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(104, 6, 104);
   font-size: 1.5rem;
   top: 50px;
@@ -84,29 +107,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20vh;
   width: 100vw;
 }
 
-.searchbtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  width: 25px;
-  outline: none;
-  border-radius: 5px 0px 0px 5px;
-  border: 1px solid purple;
-  border-right: none;
+.searchInputBox{
+position: relative;
 }
+.searchbtn{
+  position: absolute;
+  top: 9px;
+  left:5px;
+}
+.inputBox {
+  padding-left: 30px;
+  outline: none;
+  width: 30vw;
+  height: 40px;
+  border: 1px solid purple;
+  border-radius: 5px;
+}
+
 
 .indexInputbox {
   position: relative;
-  padding-right: 90px;
+  margin-right: 30px;
 }
 .indexsearchIcon {
   position: absolute;
-  top:5px;
+  top:3px;
   left: 5px;
 }
 .indexInput {
@@ -116,18 +144,9 @@
   padding-top: 4px;
   padding-bottom: 4px;
   border-radius: 5px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
-.inputBox {
-  padding-left: 2px;
-  outline: none;
-  width: 30vw;
-  height: 40px;
-  border: 1px solid purple;
-  border-radius: 0px 5px 5px 0px;
-  border-left: none;
-}
 
 .searchIcon {
   filter: invert(16%) sepia(99%) saturate(7404%) hue-rotate(290deg)
@@ -147,8 +166,9 @@
   display: flex;
   align-items: center;
   box-shadow: 0 0 5px rgba(128, 128, 128, 0.432);
-  padding:5px;
+  padding:10px;
   border-radius: 5px;
+  box-sizing: border-box;
   margin-right: 15px;
 }
 
@@ -215,9 +235,6 @@
   align-items: center;
   width: 100vw;
   height: 20vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 400;
 }
 
 .icon {
@@ -225,13 +242,16 @@
 }
 
 @media only screen and (max-width: 1200px) {
+  .nav{
+    display: none;
+  }
+  .hamnav{
+    display: block;
+  }
   .infotext {
     font-size: 0.5rem;
   }
 
-  .searchIcon {
-    right: 302px;
-  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -244,17 +264,13 @@
     padding-left: 20px;
   }
  
-  .searchIcon {
-    right: 220px;
-  }
-
   
 }
 
 @media only screen and (max-width: 600px) {
 
   .indexInputbox{
-    padding-right: 20px;
+    margin-right: 20px;
   }
   .showdata{
     font-size: 0.6rem;
@@ -263,9 +279,6 @@
     width: 60vw;
   }
 
-  .searchIcon {
-    right: 318px;
-  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -276,9 +289,6 @@
     font-size: 0.7rem;
   }
 
-  .searchIcon {
-    right: 240px;
-  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -286,14 +296,12 @@
   .stockDetail {
     min-width: 70px;
   }
-  .searchIcon {
-    right: 225px;
-  }
+
 }
 
 @media only screen and (max-width: 300px) {
   .indexInputbox{
-    padding-right: 5px;
+    margin-right: 2px;
   }
   .showdata{
     font-size: 0.5rem;
@@ -301,14 +309,10 @@
   .stockDetail {
     min-width: 30px;
   }
-  .searchIcon {
-    right: 160px;
-  }
 }
 
 @media only screen and (max-width: 200px) {
 .showdata{
-
   font-size: 0.5rem;
 }
 }
