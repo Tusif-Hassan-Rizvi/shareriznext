@@ -28,7 +28,7 @@ export default function Search(props) {
   }, []);
   return (
     <>
-      <section id="Track">
+      <section id="Track" style={{minHeight:"60vh"}}>
         <div className={styles.searchOption}>
           <div className={styles.searchInputBox}>
             <span className={styles.searchbtn}>

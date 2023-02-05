@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "@/styles/customselect.module.css";
-import {RiArrowDropDownLine}  from "react-icons/ri";
+import {RiArrowDropDownLine, RiArrowDropUpLine}  from "react-icons/ri";
 
 function CustomSelect({ options, onChange }) {
   const [selectedOption, setSelectedOption] = useState(options[0]);
@@ -21,7 +21,11 @@ function CustomSelect({ options, onChange }) {
         }}
       >
         <span>{selectedOption}</span>
-        <RiArrowDropDownLine style={{fontSize:"25px", position:"absolute", right:"0"}}/>
+        {hoverstyle === 'none' ? (
+    <RiArrowDropDownLine style={{ fontSize: '25px', position: 'absolute', right: '0' }} />
+  ) : (
+    <RiArrowDropUpLine style={{ fontSize: '25px', position: 'absolute', right: '0' }} />
+  )}
       </div>
       <ul className={styles.optionsList} style={{ display: hoverstyle}}>
         {options.map((option) => (

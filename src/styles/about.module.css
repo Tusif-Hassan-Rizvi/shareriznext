@@ -1,7 +1,7 @@
 .aboutbox {
   margin-top: 10vh;
   width: 100vw;
-  height: 70vh;
+  height: 80vh;
   background: linear-gradient(
     112.7deg,
     rgb(162, 247, 241) 0.3%,
@@ -14,5 +14,18 @@
 }
 
 .aboutText {
-  width: 50vw;
+  width: 70vw;
+  font-weight: 400;
+  color: #fbfbfb;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  line-height: 1.6;
 }
+
+@media only screen and (max-width: 500px) {
+  .aboutText{
+    font-size: 0.7rem;
+    width: 80vw;
+  }
+}
+
