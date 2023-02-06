@@ -33,11 +33,11 @@
 }
 
 .option{
-  font-size: 0.8rem;
-  border-bottom: 1px solid gray;
-  padding: 2px 0;
+  font-size: 0.7rem;
+  padding: 4px;
+  border-radius: 4px;
 }
 
-.option:active{
-  background-color: rgb(230, 230, 230);
+.option:hover{
+  background-color: rgba(128, 0, 128, 0.075);
 }

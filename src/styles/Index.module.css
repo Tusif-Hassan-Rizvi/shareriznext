@@ -60,6 +60,8 @@
   flex-direction: column;
   width: 100vw;
   min-height: 100vh;
+  border-bottom: 1px solid rgb(233, 232, 232);
+  border-top: 1px solid rgb(233, 232, 232);
 }
 
 .container a {
@@ -88,7 +90,7 @@
 .stockDetail {
   box-sizing: border-box;
   min-width: 100px;
-  padding: 0 10px;
+  padding-left:10px;
 }
 .showdataBox {
   max-height: 80vh;
@@ -99,7 +101,7 @@
   position: absolute;
   color: rgb(104, 6, 104);
   font-size: 1.5rem;
-  top: 50px;
+  top: 150px;
   font-weight: 500;
 }
 
@@ -165,11 +167,12 @@ position: relative;
 .menue {
   display: flex;
   align-items: center;
-  box-shadow: 0 0 5px rgba(128, 128, 128, 0.432);
-  padding:10px;
-  border-radius: 5px;
+  padding: 15px 0;
+  padding-right:20px;
   box-sizing: border-box;
-  margin-right: 15px;
+  width: 100vw;
+  justify-content: center;
+  border-bottom: 1px solid rgb(233, 232, 232);
 }
 
 .button-section {

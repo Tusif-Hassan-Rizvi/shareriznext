@@ -30,7 +30,7 @@ function CustomSelect({ options, onChange }) {
       <ul className={styles.optionsList} style={{ display: hoverstyle}}>
         {options.map((option) => (
           <li
-          style={selectedOption === option?{color: "gray", pointerEvents: "none", cursor: 'default'}:{color: "black", pointerEvents: "auto", cursor: 'pointer'}}
+          style={selectedOption === option?{color: "gray", pointerEvents: "none", cursor: 'default'}:{color: "#0e2431", pointerEvents: "auto", cursor: 'pointer'}}
             key={option}
             className={styles.option}
             onClick={() => {
