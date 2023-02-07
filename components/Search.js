@@ -6,7 +6,6 @@ import Stocktable from "./Stocktable";
 
 export default function Search(props) {
   const [input, setInput] = useState("");
-  const [breifdata, setBreifdata] = useState([]);
   const HandleChange = (e) => {
     props.SearchValue(e.target.value);
     setInput(e.target.value);
@@ -19,13 +18,6 @@ export default function Search(props) {
       SearchAll.children[0].style.display = "flex";
     }
   }, [input]);
-  useEffect(() => {
-    fetch("http://localhost:3000/api/alldata")
-      .then((response) => response.json())
-      .then((response) => {
-        setBreifdata(response);
-      });
-  }, []);
   return (
     <>
       <section id="Track" style={{minHeight:"60vh"}}>
@@ -53,9 +45,9 @@ export default function Search(props) {
 
         {/* search result  */}
         <div id="searchData" className={styles.SearchData}>
-          {breifdata.length === 0
+          {props.ALLDATA.message
             ? null
-            : breifdata.map(
+            :props.ALLDATA.map(
                 (item, index) =>
                   input !== "" &&
                   (item.symbol.includes(input.toUpperCase()) ? (

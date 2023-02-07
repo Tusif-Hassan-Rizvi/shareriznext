@@ -118,8 +118,8 @@ export default function Mainbox(props) {
             <Loadder />
           ) : (
             <div>
-              {props.stockdata.length === 0 ? (
-                <h2>Data not found!</h2>
+              {props.stockdata.length === 0 || props.stockdata.message? (
+                <h2 style={{color:"purple", marginTop:"100px"}}>Data not found!</h2>
               ) : (
                 props.stockdata.map((item, index) => (
                   <div key={index}>

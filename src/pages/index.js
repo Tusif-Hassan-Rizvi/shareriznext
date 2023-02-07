@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import axios from 'axios';
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Index.module.css";
 import Header from "components/Header";
@@ -14,7 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home(props) {
   const [searchvalue, setSearchvalue] = useState("");
   const [indices, setIndices] = useState("NIFTY 50");
-  const [stockdata, setStockdata] = useState(props.mydata);
+  const [stockdata, setStockdata] = useState(props.IndicesData);
   const [loading, setLoading]=useState(false)
   // lifting state up for search value
   const SearchValue = (data) => {
@@ -34,6 +35,8 @@ export default function Home(props) {
       .then((response) => {
         setLoading(false)
         setStockdata(response)
+      }).catch(()=>{
+        setStockdata({ message: "Data not found!" })
       });
   }, [indices]);
   return (
@@ -52,7 +55,7 @@ export default function Home(props) {
       </Head>
       <Header></Header>
       <About></About>
-      <Search SearchValue={SearchValue}></Search>
+      <Search SearchValue={SearchValue} ALLDATA={props.AllData}></Search>
       <Mainbox Indices={GetIndices} stockdata={stockdata} loading={loading} searchvalue={searchvalue}></Mainbox>
       <Footer></Footer>
     </>
@@ -61,10 +64,21 @@ export default function Home(props) {
 
 export async function getServerSideProps() {
 const indices = 'NIFTY 50';
-const link = `http://localhost:3000/api/data?indices=${indices}`;
-let data = await fetch(link);
-let mydata = await data.json();
+const link1 = `http://localhost:3000/api/data?indices=${indices}`;
+const link2='http://localhost:3000/api/alldata';
+
+// fetch data from for indices 
+const firstApiResponse = await axios.get(link1);
+const IndicesData = firstApiResponse.data;
+
+// Fetch data for all data
+const secondApiResponse = await axios.get(link2);
+const AllData = secondApiResponse.data;
+
 return {
-  props: { mydata },
+  props: {
+    IndicesData,
+    AllData,
+  },
 };
 }

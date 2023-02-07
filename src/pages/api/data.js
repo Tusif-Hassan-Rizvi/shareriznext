@@ -22,7 +22,7 @@ export default function handler(req, res) {
     .catch(function (error) {
       console.error(error);
       if (error) {
-        res.status(200).json({ error: "Data not found!" });
+        res.status(200).json({ message: "Data not found!" });
       }
     });
 }
