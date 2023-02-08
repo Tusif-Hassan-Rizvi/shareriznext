@@ -25,8 +25,16 @@ export default function Mainbox(props) {
     "NIFTY FIN SERVICE",
     "NIFTY MEDIA",
     "NIFTY FMCG",
+    "NIFTY REALTY",
+    "NIFTY MNC",
+    "NIFTY PSE",
+    "NIFTY SERV SECTOR",
     "NIFTY MIDCAP 50",
-    "NIFTY MIDCAP 100"
+    "NIFTY MIDCAP 100",
+    "NIFTY SMLCAP 50",
+    "NIFTY SMLCAP 100",
+    "NIFTY MIDSML 400",
+    
   ];
 
   const OnclickIndices = (e) => {

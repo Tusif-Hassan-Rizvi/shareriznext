@@ -30,7 +30,7 @@ export default function Home(props) {
   // fetching data from api
   useEffect(() => {
     setLoading(true)
-    fetch(process.env.NEXT_PUBLIC_ALLSTOCK + indices)
+    fetch(`http://localhost:3000/api/data?indices=${indices}`)
       .then((response) => response.json())
       .then((response) => {
         setLoading(false)

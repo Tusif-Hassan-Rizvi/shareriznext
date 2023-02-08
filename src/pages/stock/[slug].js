@@ -16,6 +16,7 @@ function Slug() {
       </button>
       <div style={{ marginTop: "15vh" }}>
         <div className={styles.showdata}>Name:{StockData.symbol}</div>
+        <div className={styles.showdata}>Name:{StockData.identifier}</div>
         <div className={styles.showdata}>Open{StockData.open}</div>
         <div className={styles.showdata}>Day High{StockData.dayHigh}</div>
         <div className={styles.showdata}>Day Low{StockData.dayLow}</div>
