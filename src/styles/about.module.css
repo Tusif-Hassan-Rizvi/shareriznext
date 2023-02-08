@@ -22,10 +22,20 @@
   line-height: 1.6;
 }
 
+.buttonStyle {
+  border: none;
+  outline: none;
+  background-color: rgb(149, 103, 197);
+  color: white;
+  padding: 8px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
 @media only screen and (max-width: 500px) {
-  .aboutText{
+  .aboutText {
     font-size: 0.7rem;
     width: 80vw;
   }
 }
-
