@@ -313,6 +313,9 @@ position: relative;
   .stockDetail {
     min-width: 30px;
   }
+  .menue{
+    padding-right: 0;
+  }
 }
 
 @media only screen and (max-width: 200px) {

@@ -1,39 +1,64 @@
-import React from 'react'
+import React from "react";
 import styles from "@/styles/grid.module.css";
 
 export default function Grid(props) {
   return (
+    <>
     <div className={styles.gridcontainer}>
-        <div className={styles.griditem}>Name:{props.StockData.symbol}</div>
-        <div className={styles.griditem}>Indenfier:{props.StockData.identifier}</div>
-        <div className={styles.griditem}>Open{props.StockData.open}</div>
-        <div className={styles.griditem}>Day High{props.StockData.dayHigh}</div>
-        <div className={styles.griditem}>Day Low{props.StockData.dayLow}</div>
-        <div className={styles.griditem}>rupees change:{props.StockData.change}</div>
-        <div className={styles.griditem}>Percent change{props.StockData.pChange}</div>
-
-        <div className={styles.griditem}>
-          PrviosDayLastPrice{props.StockData.previousClose}
-        </div>
-        <div className={styles.griditem}>
-          Year High price{props.StockData.yearHigh}
-        </div>
-        <div className={styles.griditem}>Year Low price{props.StockData.yearLow}</div>
-        <div className={styles.griditem}>
-          last 30 days percent change{props.StockData.perChange30d}
-        </div>
-        <div className={styles.griditem}>
-          last 360 days percent change{props.StockData.perChange365d}
-        </div>
-        <div className={styles.griditem}>
-          total trade value{props.StockData.totalTradedValue}
-        </div>
-        <div className={styles.griditem}>
-          total trade volume{props.StockData.totalTradedVolume}
-        </div>
-        <div className={styles.griditem}>
-          last update time{props.StockData.lastUpdateTime}
-        </div>
+      <div className={styles.griditem}>
+        <div>Name</div>
+        <span>{props.StockData.symbol}</span>
       </div>
-  )
+      <div className={styles.griditem}>
+        <div>Open</div>
+        <span>{props.StockData.open}</span>
+      </div>
+      <div className={styles.griditem}>
+        <div>Day High</div>
+        <span>{props.StockData.dayHigh}</span>
+      </div>
+      <div className={styles.griditem}>
+        <div>Day Low</div>
+        <span>{props.StockData.dayLow}</span>
+      </div>
+      <div className={styles.griditem}>
+        <div>Change</div>
+        <span style={props.StockData.change >= 0 ? { color: "green" } : { color: "red" }}>{props.StockData.change.toFixed(2)}₹</span>
+      </div>
+      <div className={styles.griditem}>
+        <div>Change</div>
+        <span style={props.StockData.pChange >= 0 ? { color: "green" } : { color: "red" }}>{props.StockData.pChange.toFixed(2)}%</span>
+      </div>
+
+      <div className={styles.griditem}>
+        <div>Previous Close</div>
+        <span>{props.StockData.previousClose}</span>
+      </div>
+      <div className={styles.griditem}>
+        <div>Year High</div>
+        <span>{props.StockData.yearHigh}</span>
+      </div>
+      <div className={styles.griditem}>
+        <div>Year Low</div>
+        <span>{props.StockData.yearLow}</span>
+      </div>
+      <div className={styles.griditem}>
+        <div>Last 30 Days</div>
+        <span style={props.StockData.perChange30d >= 0 ? { color: "green" } : { color: "red" }}>{props.StockData.perChange30d.toFixed(2)}%</span>
+      </div>
+      <div className={styles.griditem}>
+        <div>Last 360 Days</div>
+        <span style={props.StockData.perChange360d >= 0 ? { color: "green" } : { color: "red" }}>{props.StockData.perChange365d.toFixed(2)}%</span>
+      </div>
+      <div className={styles.griditem}>
+        <div>Total Trade Value</div>
+        <span>₹{props.StockData.totalTradedValue.toFixed(2)}</span>
+      </div>
+      <div className={styles.griditem}>
+        <div>Total Trade Volume</div>
+        <span>{props.StockData.totalTradedVolume}</span>
+      </div>
+    </div>
+    </>
+  );
 }
