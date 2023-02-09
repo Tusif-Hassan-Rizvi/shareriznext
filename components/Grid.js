@@ -47,7 +47,7 @@ export default function Grid(props) {
         <span style={props.StockData.perChange30d >= 0 ? { color: "green" } : { color: "red" }}>{props.StockData.perChange30d.toFixed(2)}%</span>
       </div>
       <div className={styles.griditem}>
-        <div>Last 360 Days</div>
+        <div>Last 365 Days</div>
         <span style={props.StockData.perChange365d >= 0 ? { color: "green" } : { color: "red" }}>{props.StockData.perChange365d.toFixed(2)}%</span>
       </div>
       <div className={styles.griditem}>

@@ -32,9 +32,7 @@ export default function Mainbox(props) {
     "NIFTY MIDCAP 50",
     "NIFTY MIDCAP 100",
     "NIFTY SMLCAP 50",
-    "NIFTY SMLCAP 100",
-    "NIFTY MIDSML 400",
-    
+    "NIFTY SMLCAP 100",  
   ];
 
   const OnclickIndices = (e) => {
