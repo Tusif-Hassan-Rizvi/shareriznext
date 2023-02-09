@@ -48,7 +48,7 @@ export default function Grid(props) {
       </div>
       <div className={styles.griditem}>
         <div>Last 360 Days</div>
-        <span style={props.StockData.perChange360d >= 0 ? { color: "green" } : { color: "red" }}>{props.StockData.perChange365d.toFixed(2)}%</span>
+        <span style={props.StockData.perChange365d >= 0 ? { color: "green" } : { color: "red" }}>{props.StockData.perChange365d.toFixed(2)}%</span>
       </div>
       <div className={styles.griditem}>
         <div>Total Trade Value</div>
