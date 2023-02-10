@@ -24,6 +24,7 @@ export async function getServerSideProps() {
   // Fetch data for all data
   const secondApiResponse = await axios.get(link2);
   const AllData = secondApiResponse.data;
+  // const AllData={message:"not found"}
 
   return {
     props: {
