@@ -15,16 +15,14 @@ const inter = Inter({ subsets: ["latin"] });
 export async function getServerSideProps() {
   const indices = "NIFTY 50";
   const link1 = `${process.env.NEXT_PUBLIC_INDICES}?indices=${indices}`;
-  const link2 = process.env.NEXT_PUBLIC_ALLSTOCK;
 
   // fetch data from for indices
   const firstApiResponse = await axios.get(link1);
   const IndicesData = firstApiResponse.data;
 
+
   // Fetch data for all data
-  const secondApiResponse = await axios.get(link2);
-  const AllData = secondApiResponse.data;
-  // const AllData={message:"not found"}
+  const AllData={message:"not found"}
 
   return {
     props: {
