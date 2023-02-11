@@ -20,16 +20,14 @@ function Slug() {
 
   return (
     <>
-    <Link href={"/"}>
       <button
         type="button"
-        // onClick={() => router.back()}
+        onClick={() => router.back()}
         className={stylesbutton.buttonStyle}
         style={{ marginLeft: "10px" }}
       >
         Go Back
       </button>
-      </Link>
       {value !== null ? (
         <>
         <div style={{ textAlign: "center", marginTop: "10px" }}>

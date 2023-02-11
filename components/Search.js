@@ -8,7 +8,7 @@ import axios from "axios";
 export default function Search(props) {
   const [input, setInput] = useState("");
   const [searchdata, setSearchdata] = useState(props.ALLDATA);
-  
+
   const HandleChange = (e) => {
     props.SearchValue(e.target.value);
     setInput(e.target.value);
@@ -19,10 +19,6 @@ export default function Search(props) {
     const AllData = secondApiResponse.data;
     setSearchdata(AllData);
   }
-
-  useEffect(()=>{
-    calldata();
-  },[])
 
   useEffect(() => {
     calldata()
