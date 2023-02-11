@@ -20,7 +20,7 @@ export default function Search(props) {
   }, [input]);
   return (
     <>
-      <section id="Track" style={{minHeight:"60vh"}}>
+      <section id="Track" style={{minHeight:"50vh"}}>
         <div className={styles.searchOption}>
           <div className={styles.searchInputBox}>
             <span className={styles.searchbtn}>
