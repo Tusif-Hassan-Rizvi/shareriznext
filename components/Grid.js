@@ -22,6 +22,10 @@ export default function Grid(props) {
         <span>{props.StockData.dayLow}</span>
       </div>
       <div className={styles.griditem}>
+        <div>Current Price</div>
+        <span>₹{props.StockData.lastPrice}</span>
+      </div>
+      <div className={styles.griditem}>
         <div>Change</div>
         <span style={props.StockData.change >= 0 ? { color: "green" } : { color: "red" }}>{props.StockData.change.toFixed(2)}₹</span>
       </div>
