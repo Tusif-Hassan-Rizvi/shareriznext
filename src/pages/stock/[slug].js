@@ -22,13 +22,13 @@ function Slug() {
   }, []);
 
 
-  async function generatePDF() {
+  async function generatePDF(stock) {
     const input = document.getElementById('pdf-content');
     const canvas = await html2canvas(input);
     const imgData = canvas.toDataURL('image/png');
     const pdf = new jsPDF();
     pdf.addImage(imgData, 'PNG', 0, 10, pdf.internal.pageSize.width, canvas.height * pdf.internal.pageSize.width / canvas.width);
-    pdf.save('screen.pdf');
+    pdf.save(`${stock}.pdf`);
   }
  
   return (
@@ -43,7 +43,7 @@ function Slug() {
       </button>
       <button
         type="button"
-        onClick={generatePDF}
+        onClick={()=>generatePDF(value.symbol)}
         className={stylesbutton.buttonStyle}
         style={{ marginLeft: "10px" }}
       >
