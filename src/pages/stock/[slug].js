@@ -5,7 +5,6 @@ import Grid from "components/Grid";
 import Link from "next/link";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import html2pdf from 'html2pdf.js';
 
 function Slug() {
   const router = useRouter();
