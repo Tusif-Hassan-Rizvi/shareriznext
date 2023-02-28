@@ -3,6 +3,9 @@ import { useRouter } from "next/router";
 import stylesbutton from "@/styles/about.module.css";
 import Grid from "components/Grid";
 import Link from "next/link";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import html2pdf from 'html2pdf.js';
 
 function Slug() {
   const router = useRouter();
@@ -18,6 +21,16 @@ function Slug() {
     }
   }, []);
 
+
+  async function generatePDF() {
+    const input = document.getElementById('pdf-content');
+    const canvas = await html2canvas(input);
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF();
+    pdf.addImage(imgData, 'PNG', 0, 10, pdf.internal.pageSize.width, canvas.height * pdf.internal.pageSize.width / canvas.width);
+    pdf.save('screen.pdf');
+  }
+ 
   return (
     <>
       <button
@@ -28,9 +41,18 @@ function Slug() {
       >
         Go Back
       </button>
+      <button
+        type="button"
+        onClick={generatePDF}
+        className={stylesbutton.buttonStyle}
+        style={{ marginLeft: "10px" }}
+      >
+        Download PDF
+      </button>
       {value !== null ? (
         <>
-        <div style={{ textAlign: "center", marginTop: "10px" }}>
+        <div id="pdf-content">
+        <div style={{ textAlign: "center", marginTop: "10px" }}  >
           <h2 >
             {value.symbol}
           </h2>
@@ -45,6 +67,7 @@ function Slug() {
             }}
           >
             <Grid StockData={value}></Grid>
+          </div>
           </div>
         </>
       ) : null}
