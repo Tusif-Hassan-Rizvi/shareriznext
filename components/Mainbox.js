@@ -9,6 +9,11 @@ import Stocktable from "./Stocktable";
 export default function Mainbox(props) {
   const [indices, setIndices] = useState("");
   const [listinput, setListinput] = useState("");
+  
+  function HandleonClick(item){
+    props.FullDetails(!props.stockfulldata)
+    sessionStorage.setItem("item", JSON.stringify(item))
+  }
   const IndexArray = [
     "NIFTY 50",
     "NIFTY NEXT 50",
@@ -128,16 +133,21 @@ export default function Mainbox(props) {
                 <h2 style={{color:"purple", marginTop:"100px"}}>Data not found!</h2>
               ) : (
                 props.stockdata.map((item, index) => (
-                  <div key={index}>
-                    <Link
-                      href={`/stock/${item.symbol}`}
-                      onClick={() =>
-                        sessionStorage.setItem("item", JSON.stringify(item))
-                      }
-                    >
+                  <div key={index} onClick={() =>
+                  HandleonClick(item)
+                  }>
                       <Stocktable item={item}></Stocktable>
-                    </Link>
                   </div>
+                  // <div key={index}>
+                  //   <Link
+                  //     href={`/stock/${item.symbol}`}
+                  //     onClick={() =>
+                  //       sessionStorage.setItem("item", JSON.stringify(item))
+                  //     }
+                  //   >
+                  //     <Stocktable item={item}></Stocktable>
+                  //   </Link>
+                  // </div>
                 ))
               )}
             </div>

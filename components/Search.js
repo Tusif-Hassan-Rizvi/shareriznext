@@ -9,6 +9,11 @@ export default function Search(props) {
   const [input, setInput] = useState("");
   const [searchdata, setSearchdata] = useState(props.ALLDATA);
 
+  function HandleonClick(item) {
+    props.FullDetails(!props.stockfulldata)
+    sessionStorage.setItem("item", JSON.stringify(item))
+  }
+
   const HandleChange = (e) => {
     props.SearchValue(e.target.value);
     setInput(e.target.value);
@@ -27,6 +32,7 @@ export default function Search(props) {
     if (SearchAll.children[0]) {
       SearchAll.children[0].style.display = "flex";
     }
+
   }, [input]);
   return (
     <>
@@ -58,23 +64,16 @@ export default function Search(props) {
           {searchdata.message
             ? null
             : searchdata.map(
-                (item, index) =>
-                  input !== "" &&
-                  (item.symbol.includes(input.toUpperCase()) ? (
-                    <div key={index} style={{ display: "none" }}>
-                      <Link legacyBehavior href={`/stock/${item.symbol}`}>
-                        <a
-                          style={{ textDecoration: "none" }}
-                          onClick={() =>
-                            sessionStorage.setItem("item", JSON.stringify(item))
-                          }
-                        >
-                          <Stocktable item={item}></Stocktable>
-                        </a>
-                      </Link>
-                    </div>
-                  ) : null)
-              )}
+              (item, index) =>
+                input !== "" &&
+                (item.symbol.includes(input.toUpperCase()) ? (
+                  <div style={{display:"none"}} key={index} onClick={() =>
+                    HandleonClick(item)
+                  }>
+                    <Stocktable item={item}></Stocktable>
+                  </div>
+                ) : null)
+            )}
         </div>
       </section>
     </>

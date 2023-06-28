@@ -9,6 +9,7 @@ import Footer from "components/Footer";
 import Search from "components/Search";
 import Mainbox from "components/Mainbox";
 import About from "components/About";
+import Stockfulldata from "components/Stockfulldata";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +21,8 @@ export async function getServerSideProps() {
   const firstApiResponse = await axios.get(link1);
   const IndicesData = firstApiResponse.data;
 
-
   // Fetch data for all data
-  const AllData={message:"not found"}
+  const AllData = { message: "not found" };
 
   return {
     props: {
@@ -37,6 +37,14 @@ export default function Home(props) {
   const [indices, setIndices] = useState("NIFTY 50");
   const [stockdata, setStockdata] = useState(props.IndicesData);
   const [loading, setLoading] = useState(false);
+
+  // state for tracking full details
+  const [stockfulldata, setStocksfulldata] = useState(false);
+
+  // function for uplift data to index
+  function FullDetails(data) {
+    setStocksfulldata(data);
+  }
   // lifting state up for search value
   const SearchValue = (data) => {
     setSearchvalue(data);
@@ -74,16 +82,27 @@ export default function Home(props) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {stockfulldata && (
+        <Stockfulldata
+          FullDetails={FullDetails}
+          stockfulldata={stockfulldata}
+        />
+      )}
+      <section style={stockfulldata?{display:'none'}:{display:'block'}}>
       <Header></Header>
       <About></About>
-      <Search SearchValue={SearchValue} ALLDATA={props.AllData}></Search>
+      <Search SearchValue={SearchValue} ALLDATA={props.AllData}  FullDetails={FullDetails}
+        stockfulldata={stockfulldata}></Search>
       <Mainbox
         Indices={GetIndices}
         stockdata={stockdata}
         loading={loading}
         searchvalue={searchvalue}
-      ></Mainbox>
+        FullDetails={FullDetails}
+        stockfulldata={stockfulldata}
+        ></Mainbox>
       <Footer></Footer>
+        </section>
     </>
   );
 }
