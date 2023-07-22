@@ -37,14 +37,14 @@ function Stockfulldata(props) {
       >
         Go Back
       </button>
-      <button
+      {/* <button
         type="button"
         onClick={()=>generatePDF(value.symbol)}
         className={stylesbutton.buttonStyle}
         style={{ marginLeft: "10px" }}
       >
         Download PDF
-      </button>
+      </button> */}
       {value !== null ? (
         <>
         <div id="pdf-content">
