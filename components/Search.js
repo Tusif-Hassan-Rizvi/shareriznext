@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import styles from "@/styles/Index.module.css";
-import Image from "next/image";
-import Link from "next/link";
-import Stocktable from "./Stocktable";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import styles from '@/styles/Index.module.css';
+import Image from 'next/image';
+import Link from 'next/link';
+import Stocktable from './Stocktable';
+import axios from 'axios';
 
 export default function Search(props) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [searchdata, setSearchdata] = useState(props.ALLDATA);
 
   function HandleonClick(item) {
-    props.FullDetails(!props.stockfulldata)
-    sessionStorage.setItem("item", JSON.stringify(item))
+    props.FullDetails(!props.stockfulldata);
+    sessionStorage.setItem('item', JSON.stringify(item));
   }
 
   const HandleChange = (e) => {
@@ -19,24 +19,30 @@ export default function Search(props) {
     setInput(e.target.value);
   };
 
+  const headers = {
+    'X-RapidAPI-Key': 'baed0f0ab7msh233268c70b5b296p1281c7jsncb4e068d88ab',
+    'X-RapidAPI-Host': 'latest-stock-price.p.rapidapi.com',
+  };
   async function calldata() {
-    const secondApiResponse = await axios.get(process.env.NEXT_PUBLIC_ALLSTOCK);
+    const secondApiResponse = await axios.get(
+      process.env.NEXT_PUBLIC_ALLSTOCK,
+      { headers }
+    );
     const AllData = secondApiResponse.data;
     setSearchdata(AllData);
   }
 
   useEffect(() => {
-    calldata()
-    let SearchAll = document.getElementById("searchData");
+    calldata();
+    let SearchAll = document.getElementById('searchData');
     // search all logic
     if (SearchAll.children[0]) {
-      SearchAll.children[0].style.display = "flex";
+      SearchAll.children[0].style.display = 'flex';
     }
-
   }, [input]);
   return (
     <>
-      <section id="Track" style={{ minHeight: "50vh" }}>
+      <section id="Track" style={{ minHeight: '50vh' }}>
         <div className={styles.searchOption}>
           <div className={styles.searchInputBox}>
             <span className={styles.searchbtn}>
@@ -64,16 +70,18 @@ export default function Search(props) {
           {searchdata.message
             ? null
             : searchdata.map(
-              (item, index) =>
-                input !== "" &&
-                (item.symbol.includes(input.toUpperCase()) ? (
-                  <div style={{display:"none"}} key={index} onClick={() =>
-                    HandleonClick(item)
-                  }>
-                    <Stocktable item={item}></Stocktable>
-                  </div>
-                ) : null)
-            )}
+                (item, index) =>
+                  input !== '' &&
+                  (item.symbol.includes(input.toUpperCase()) ? (
+                    <div
+                      style={{ display: 'none' }}
+                      key={index}
+                      onClick={() => HandleonClick(item)}
+                    >
+                      <Stocktable item={item}></Stocktable>
+                    </div>
+                  ) : null)
+              )}
         </div>
       </section>
     </>

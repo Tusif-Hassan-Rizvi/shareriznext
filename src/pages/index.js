@@ -15,10 +15,16 @@ const inter = Inter({ subsets: ['latin'] });
 
 export async function getServerSideProps() {
   const indices = 'NIFTY 50';
-  const link1 = `${process.env.NEXT_PUBLIC_INDICES}?indices=${indices}`;
+  // const link1 = `${process.env.NEXT_PUBLIC_INDICES}?indices=${indices}`;
+  const link1 = `https://latest-stock-price.p.rapidapi.com/price`;
+  const headers = {
+    'X-RapidAPI-Key': 'baed0f0ab7msh233268c70b5b296p1281c7jsncb4e068d88ab',
+    'X-RapidAPI-Host': 'latest-stock-price.p.rapidapi.com',
+  };
+  const params = { Indices: indices };
 
   // fetch data from for indices
-  const firstApiResponse = await axios.get(link1);
+  const firstApiResponse = await axios.get(link1, { headers, params });
   const IndicesData = firstApiResponse.data;
 
   // Fetch data for all data
@@ -57,16 +63,34 @@ export default function Home(props) {
 
   // fetching data from api
   useEffect(() => {
-    setLoading(true);
-    fetch(`${process.env.NEXT_PUBLIC_INDICES}?indices=${indices}`)
-      .then((response) => response.json())
-      .then((response) => {
+    const fetchData = async () => {
+      setLoading(true);
+
+      try {
+        const response = await axios.get(
+          `https://latest-stock-price.p.rapidapi.com/price`,
+          {
+            params: {
+              Indices: indices,
+            },
+            headers: {
+              'X-RapidAPI-Key':
+                'baed0f0ab7msh233268c70b5b296p1281c7jsncb4e068d88ab',
+              'X-RapidAPI-Host': 'latest-stock-price.p.rapidapi.com',
+            },
+          }
+        );
+
+        setStockdata(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setError({ message: 'Data not found!' });
+      } finally {
         setLoading(false);
-        setStockdata(response);
-      })
-      .catch(() => {
-        setStockdata({ message: 'Data not found!' });
-      });
+      }
+    };
+
+    fetchData();
   }, [indices]);
   return (
     <>
