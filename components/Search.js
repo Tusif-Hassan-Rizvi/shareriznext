@@ -25,7 +25,7 @@ export default function Search(props) {
   };
   async function calldata() {
     const secondApiResponse = await axios.get(
-      process.env.NEXT_PUBLIC_ALLSTOCK,
+     'https://latest-stock-price.p.rapidapi.com/any',
       { headers }
     );
     const AllData = secondApiResponse.data;
