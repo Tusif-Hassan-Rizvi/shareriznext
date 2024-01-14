@@ -1,1 +1,1 @@
-https://shareriz.com
+https://shareriznext.vercel.app/
